@@ -14,4 +14,4 @@ Find a way to use square mileage, as well as population, and return population d
 Use population density to see how many people would die in a natural disaster. For 
 Earthquakes, ask the user how strong the earthquake is, and ask for the population over the square mileage of which you are similating the disaster for, then it could tell you the amount of deaths and injuries. Use richter scale for it
 Density, and deaths for now. 
-sGet a table of richeter scale, popuation densty, and deaths for as many now earthquakes. start with 10 known earthquakes. Write the data as a list of tupples 
+sGet a table of richeter scale, popuation densty, and deaths for as many now earthquakes. start with 10 known earthquakes. Write the data as a list of tupples: (R*P)/D=x, and get avergage of x for all 10 rows.
