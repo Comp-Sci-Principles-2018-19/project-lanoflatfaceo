@@ -7,7 +7,7 @@ project-lanoflatfaceo created by GitHub Classroom
 Totally accurate Natural disaster simulator:
 Totally accurate Natural disaster simulator is based of the very wacky game,
 totally accurate battle simulator.http://landfall.se/totally-accurate-battle-simulator/ A game where you can have anything go up against anything.
-Same principle in Totally accurate Natural disaster simulator.
+Same principle in Totally Accurate Natural Disaster Simulator.
 If you would like to see an entire nation getting wiped out by a massive earthquake?
 Sure. Want to see Japan get washed away by a massive Tsunami like a sand castle? No problem.
 So, as you can see, you can put any natural disaster, even your own creations, and have them go up against anything.
