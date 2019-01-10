@@ -18,6 +18,9 @@ def Tsunami(w,s,rnd_num):
      """w=wave size, and s=strength of the tsuanmi"""
        if "w"<5:
              print(rnd_num_bwt_2000_and_5000+"people have died")```
-It will be text based.
+It will be text based, and the example above will be done for each type of disaster. Each function will receive a set of conditionals with the tupple from the spreadsheet.
+This is to ensure realistic results when asking the user for the population density, richter scale, etc. Would then set up an equation in the function, which does all of the processing, and then finally categorize which one of the conditions should it be in.
+
+
 
 
