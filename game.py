@@ -9,10 +9,10 @@ def game_1():
         game_2()
     elif x=="B":
         print("WRONG.")
-        beginning()
+        game_1()
     elif x=="C":
         print("WRONG.")
-        beginning()
+        game_1()
     else:
         print("Input one of the following letters to proceed.")
         game_1()
@@ -22,7 +22,7 @@ def game_2():
         game_3()
     elif x=="2":
         print("WRONG.")
-        beginning()
+        game_2()
     else:
         print("Input one of the following letters to proceed.")
         game_2()
@@ -30,14 +30,15 @@ def game_3():
     x=input("Question 3:How many cells does meiosis produce? 1:Two Identical daughter cells, 2:Two unidentical daughter cells, 3: 4 Unidentical daughter cells, 4: 4 Identical daughter cells.")
     if x=="1":
         print("WRONG.")
-        beginning()
+        game_3()
     elif x=="2":
         print("WRONG.")
-        beginning()
+        game_3()
     elif x=="3":
         game_4()
     elif x=="4":
         print("WRONG.")
+        game_3()
     else:
         print("Input one of the following letters to proceed.")
         game_3()
@@ -46,13 +47,13 @@ def game_4():
     if x=="1":
         game_5()
     elif x=="2":
-        game_5
+        game_5()
     elif x=="3":
         print("WRONG.")
-        beginning()
+        game_4()
     if x=="4":
         print("WRONG.")
-        beginning()
+        game_4()
     else:
         print("Input one of the following letters to proceed.")
         game_4()
@@ -62,16 +63,16 @@ def game_5():
         end_screen()
     elif x=="2":
         print("WRONG.")
-        beginning()
+        game_5()
     elif x=="3":
         print("WRONG")
-        beginning()
+        game_5()
     else:
         print("Input one of the following letters to proceed.")
         game_5()
 def end_screen():
     print("Congrats on aceing this ''Quiz''. Well, I hope this mini game which i have created will help you understand more about Photosynthesis, cellular respiraiton, mitosis, meiosis, DNA, and RNA. :)")
-    end()
+    beginning()
         
 def PM():
     first_choice=input("Okay, photosynthesis is a very interesting process. press enter to continue (return for those playing on an apple)")
@@ -102,7 +103,7 @@ def PM():
                     
     else:
         print("Just press space bar. that's all")
-        start()
+        PM()
 def M():
     first_choice_1=input("Mitosis and meiosis have to do with reproduction of cells in the human body. press enter to continue")
     if first_choice_1=="":
@@ -131,7 +132,7 @@ def M():
                                     
     else:
         print("Just press space bar. that's all")
-        start()
+        M()
 def DNA():
     second_choice_1=input("DNA (Deoxyribonucleic acid) is a molecule which is known for its shape, which is a double helix. DNA's job is to contain all of your genetic information, inside your nucleus, inside a cell.")
     if second_choice_1=="":
@@ -159,7 +160,7 @@ def DNA():
                             
     else:
         print("Just press space bar. that's all")
-        start()
+        DNA()
                
     
     
@@ -181,7 +182,7 @@ def beginning():
 
     else:
         print("please use one of the 'words' from above to continue.")
-        start() 
+        beginning()
 def game():
     print("Okay, now that you have adequate knowledge on these three topics, I shall ''quiz'' you.")
     game_1()
