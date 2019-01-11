@@ -1,5 +1,8 @@
 import sys
 import os
+#def start():
+    
+
 def game_1():
     x=input("Question 1: What must a codon start with?:A=AUG, B=GUA, C=UAG")
     if x=="A":
@@ -54,22 +57,21 @@ def game_4():
         print("Input one of the following letters to proceed.")
         game_4()
 def game_5():
-    x=input("How much ATP is created during Aerobic respiration? A:32-38, B:10, C:40")
-    if x=="A":
+    x=input("How much ATP is created during Aerobic respiration? 1:32-38, 2:10, 3:40")
+    if x=="1":
         end_screen()
-    elif x=="B":
+    elif x=="2":
         print("WRONG.")
         beginning()
-    elif x=="C":
+    elif x=="3":
         print("WRONG")
         beginning()
     else:
         print("Input one of the following letters to proceed.")
         game_5()
 def end_screen():
-    
     print("Congrats on aceing this ''Quiz''. Well, I hope this mini game which i have created will help you understand more about Photosynthesis, cellular respiraiton, mitosis, meiosis, DNA, and RNA. :)")
- 
+    end()
         
 def PM():
     first_choice=input("Okay, photosynthesis is a very interesting process. press enter to continue (return for those playing on an apple)")
