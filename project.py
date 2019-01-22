@@ -39,7 +39,7 @@ def earthquake(r,p):
   
     d=r*p*ra
     return d
-
+    #return d (deaths), w(wounded), do(dollars), return (d,w,do)
     
 
 def test_suite():
