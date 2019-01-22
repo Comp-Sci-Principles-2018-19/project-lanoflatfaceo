@@ -19,6 +19,7 @@ def test_suite():
      """ Run the suite of tests for code in this module (this file).
     """
      test(earthquake(7.8,164000) == 71)
+     """Using data from Guam because it is an island"""
 test_suite()
 
 
