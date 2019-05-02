@@ -1,4 +1,6 @@
 import sys
+import numpy as np
+import matplotlib.pyplot as plt #sets up a pyplot graph as plt
 
 def test(did_pass):
     """  Print the result of a test.  """
@@ -37,14 +39,15 @@ def earthquake(r,p):
     ra=calc_death_ratio()
   
     d=r*p*ra
-
+    
     if d>p:
         d=p
         return d
     if d<1:
-        return("There were no deaths")
+        return 0
     return d
-    
+    return p
+    return r
     #return d (deaths), w(wounded), do(dollars), return (d,w,do)
     
 
@@ -56,15 +59,17 @@ def test_suite():
      test(calc_wounded_ratio()==5.550343964978111e-05)
      test(calc_damage_ratio()==195.43464665415885)
      """Using data from Guam because it is an island"""
-test_suite()
 
 
 ric=float(input("How strong is the earthquake on the Richter scale?"))
 pop=int(input("what is the population of the area?"))
 
 
-
+test_suite()
 
 print("There will be",earthquake(ric,pop),"deaths.")
 
-    
+
+t = np.arange(earthquake(ric,pop))
+plt.plot(t, earthquake(ric,pop))
+plt.show()
