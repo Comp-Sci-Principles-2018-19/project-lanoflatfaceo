@@ -1,0 +1,13 @@
+def days_in_month:
+    test(days_in_month("January") == 31)
+    test(days_in_month("February") == 28)
+    test(days_in_month("March") == 31)
+    test(days_in_month("April") == 30)
+    test(days_in_month("May") == 31)
+    test(days_in_month("June") == 30)
+    test(days_in_month("July") == 31)
+    test(days_in_month("August") == 31)
+    test(days_in_month("September") == 30)
+    test(days_in_month("October") == 31)
+    test(days_in_month("November") == 30)
+    test(days_in_month("December") == 31)

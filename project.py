@@ -37,7 +37,14 @@ def earthquake(r,p):
     ra=calc_death_ratio()
   
     d=r*p*ra
+
+    if d>p:
+        d=p
+        return d
+    if d<1:
+        return("There were no deaths")
     return d
+    
     #return d (deaths), w(wounded), do(dollars), return (d,w,do)
     
 
@@ -56,7 +63,8 @@ ric=float(input("How strong is the earthquake on the Richter scale?"))
 pop=int(input("what is the population of the area?"))
 
 
-    
+
 
 print("There will be",earthquake(ric,pop),"deaths.")
+
     
