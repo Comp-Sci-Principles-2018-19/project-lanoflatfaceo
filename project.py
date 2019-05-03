@@ -1,4 +1,7 @@
 import sys
+import numpy as np
+import matplotlib.pyplot as plt #sets up a pyplot graph as plt
+
 
 def test(did_pass):
     """  Print the result of a test.  """
@@ -56,7 +59,8 @@ ric=float(input("How strong is the earthquake on the Richter scale?"))
 pop=int(input("what is the population of the area?"))
 
 
-    
+t = np.arange(0, 20, 0.5)
 
+plt.plot(t, ric)
 print("There will be",earthquake(ric,pop),"deaths.")
     
