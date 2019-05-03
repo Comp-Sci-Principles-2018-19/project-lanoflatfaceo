@@ -35,20 +35,18 @@ def calc_death_ratio():
     ra=d/(r*p)
     return ra
     
-def earthquake(r,p):
+def earthquake(r, p=10000):
     """r=richter scale, p=popuation of affected area"""
     ra=calc_death_ratio()
-  
-    d=r*p*ra
     
-    if d>p:
-        d=p
-        return d
-    if d<1:
-        return 0
+    d=r*p*ra
+    print(d)
+    #if d>p:
+        #d=p
+        #return d
+    #if d<1:
+        #return 0
     return d
-    return p
-    return r
     #return d (deaths), w(wounded), do(dollars), return (d,w,do)
     
 
@@ -67,15 +65,15 @@ pop=int(input("what is the population of the area?"))
 
 
 
-t = np.arange(0, 20, 0.5)
+t = np.arange(0, 10, 0.5)
 
 test_suite()
 
 
-plt.plot(t, ric)
+#plt.plot(t, ric)
 print("There will be",earthquake(ric,pop),"deaths.")
+#pop=1000
 
-
-t = np.arange(earthquake(ric,pop))
-plt.plot(t, earthquake(ric,pop))
+#t = np.arange(earthquake(pop))
+plt.plot(t, earthquake(t,pop))
 plt.show()
