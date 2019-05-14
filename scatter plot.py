@@ -10,5 +10,5 @@ x=np.linspace(0, 20, 10)
 #colors = np.random.rand(N)
 #area = (30 * np.random.rand(N))**2  # 0 to 15 point radii
 
-plt.scatter(x, x**3)
+plt.scatter(x, x**10)
 plt.show()
