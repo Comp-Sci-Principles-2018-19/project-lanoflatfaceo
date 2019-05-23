@@ -1,6 +1,7 @@
 import sys
 import numpy as np
-import matplotlib.pyplot as plt #sets up a pyplot graph as plt
+import matplotlib.pyplot as plt #sets up a pyplot graph as p
+import pandas as pd
 
 
 def test(did_pass):
@@ -67,13 +68,35 @@ pop=int(input("what is the population of the area?"))
 
 t = np.arange(0, 10, 0.5)
 
-test_suite()
+#test_suite()
 
 
-#plt.plot(t, ric)
+df=pd.read_csv('TANDS.csv')
+#df1 = df.reindex(index=dates[0:4], columns=list(df.columns))
+ric=df["R"]
+deaths=df["D"]
+pop=df["pop"]
+deathsper=deaths/pop
+print(deathsper)
+
+
+
+
+
+
+plt.plot(t, ric)
 print("There will be",earthquake(ric,pop),"deaths.")
-#pop=1000
+pop=1000
 
-#t = np.arange(earthquake(pop))
-plt.plot(t, earthquake(t,pop))
+
+
+
+plt.subplot(1, 1, 1)
+plt.plot( ric, earthquake(ric,pop),"o")
+plt.title('A tale of 2 subplots')
+plt.ylabel('deaths')
+plt.subplot(1, 1, 1)
+plt.plot(deathsper,ric,"-")
+plt.xlabel('time (s)')
+plt.ylabel('Undamped')
 plt.show()

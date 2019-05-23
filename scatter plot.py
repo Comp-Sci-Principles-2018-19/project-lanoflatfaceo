@@ -11,7 +11,7 @@ y=[2,6,7]
 #area = (30 * np.random.rand(N))**2  # 0 to 15 point radii
 
 
-plt.scatter(x, x**10)
+#plt.scatter(x, x**10)
 
 plt.scatter(x,y)
 plt.show()
