@@ -1,7 +1,7 @@
 import sys
-import numpy as np
 import matplotlib.pyplot as plt #sets up a pyplot graph as p
 import pandas as pd
+import numpy as np
 
 
 def test(did_pass):
@@ -61,22 +61,25 @@ def test_suite():
      """Using data from Guam because it is an island"""
 
 
-ric=float(input("How strong is the earthquake on the Richter scale?"))
-pop=int(input("what is the population of the area?"))
+#ric=float(input("How strong is the earthquake on the Richter scale?"))
+#pop=int(input("what is the population of the area?"))
 
 
 
-t = np.arange(0, 10, 0.5)
+#t = np.arange(0, 10, 0.5)
 
 #test_suite()
 
 
-df=pd.read_csv('TANDS.csv')
+df=pd.read_csv('data.csv')
 #df1 = df.reindex(index=dates[0:4], columns=list(df.columns))
-ric=df["R"]
+r=df["R"]
 deaths=df["D"]
-pop=df["pop"]
-deathsper=deaths/pop
+p=df["pop"]
+print("deathsper*******************************************")
+deathsper=deaths/p
+print(deathsper)
+deathsper.clip(0.00, 0.2)
 print(deathsper)
 
 
@@ -84,19 +87,19 @@ print(deathsper)
 
 
 
-plt.plot(t, ric)
-print("There will be",earthquake(ric,pop),"deaths.")
-pop=1000
+#plt.plot(t, ric)
+#print("There will be",earthquake(ric,pop),"deaths.")
+#pop=1000
+popscale=np.linspace(0.0, 100.0)
+y1 = np.linspace(6, 12)
+x1 = earthquake(y1, popscale)
 
-
-
-
-plt.subplot(1, 1, 1)
-plt.plot( ric, earthquake(ric,pop),"o")
-plt.title('A tale of 2 subplots')
+plt.subplot(1,1,1)
+plt.plot( x1, y1, "-")
+plt.title('deaths from eartquakes')
 plt.ylabel('deaths')
 plt.subplot(1, 1, 1)
-plt.plot(deathsper,ric,"-")
-plt.xlabel('time (s)')
-plt.ylabel('Undamped')
+plt.plot(deathsper, r, "o")
+plt.xlabel('deaths per 1000')
+plt.ylabel("richter scale")
 plt.show()
