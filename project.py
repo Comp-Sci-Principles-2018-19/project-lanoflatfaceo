@@ -33,14 +33,14 @@ def calc_death_ratio():
     d=48
     r=7.8
     p=164000
-    ra=d/(r*p)
+    ra=d/(r)
     return ra
     
-def earthquake(r, p=10000):
+def earthquake(r, ra):
     """r=richter scale, p=popuation of affected area"""
-    ra=calc_death_ratio()
+    #ra=calc_death_ratio()
     
-    d=r*p*ra
+    d=(r**2*ra)-(ra/.05)
     print(d)
     #if d>p:
         #d=p
@@ -61,8 +61,7 @@ def test_suite():
      """Using data from Guam because it is an island"""
 
 
-#ric=float(input("How strong is the earthquake on the Richter scale?"))
-#pop=int(input("what is the population of the area?"))
+
 
 
 
@@ -76,11 +75,10 @@ df=pd.read_csv('data_utf.csv')
 r=df["R"]
 deaths=df["D"]
 #p=df["pop"]
-print("deathsper*******************************************")
-deathsper=deaths
-print(deathsper)
-#deathsper.clip(0.00, 0.2)
-print(deathsper)
+print("deaths*******************************************")
+print(deaths)
+#deaths.clip(0.00, 0.2)
+print(deaths)
 
 
 
@@ -90,17 +88,24 @@ print(deathsper)
 #plt.plot(t, ric)
 #print("There will be",earthquake(ric,pop),"deaths.")
 #pop=1000
-popscale=np.linspace(0.0, 100.0)
-y1 = np.linspace(6, 12)
-x1 = earthquake(y1, popscale)
-slope=deathsper/r
+popscale=np.linspace(0.0, 250000.0)
+y1 = np.linspace(5, 10)
+x1 = earthquake(y1, ric+10)
+x2=earthquake(y1, 150)
+x3=earthquake(y1, ric-10)
+slope=deaths/r
 plt.subplot(1,1,1)
 plt.plot( x1, y1,  "-")
 plt.title('deaths from eartquakes')
 plt.ylabel('deaths')
-plt.plot(deathsper, r, "o")
-plt.plot(slope, r, "rs")
-plt.xlabel('deaths per 1000')
+plt.plot(deaths, r, "o")
+plt.plot(x2, y1, "r-")
+plt.plot(x3, y1, "g-")
+#plt.plot(slope, r, "rs")
+plt.xlabel('deaths')
 plt.ylabel("richter scale")
 
 plt.show()
+
+#ric=float(input("How strong is the earthquake on the Richter scale?"))
+#pop=int(input("what is the population of the area?"))
