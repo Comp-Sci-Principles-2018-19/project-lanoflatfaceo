@@ -93,13 +93,14 @@ print(deathsper)
 popscale=np.linspace(0.0, 100.0)
 y1 = np.linspace(6, 12)
 x1 = earthquake(y1, popscale)
-
+slope=deathsper/r
 plt.subplot(1,1,1)
-plt.plot( x1, y1, "-")
+plt.plot( x1, y1,  "-")
 plt.title('deaths from eartquakes')
 plt.ylabel('deaths')
-plt.subplot(1, 1, 1)
 plt.plot(deathsper, r, "o")
+plt.plot(slope, r, "rs")
 plt.xlabel('deaths per 1000')
 plt.ylabel("richter scale")
+
 plt.show()
