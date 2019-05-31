@@ -71,15 +71,15 @@ def test_suite():
 #test_suite()
 
 
-df=pd.read_csv('data.csv')
+df=pd.read_csv('data_utf.csv')
 #df1 = df.reindex(index=dates[0:4], columns=list(df.columns))
 r=df["R"]
 deaths=df["D"]
-p=df["pop"]
+#p=df["pop"]
 print("deathsper*******************************************")
-deathsper=deaths/p
+deathsper=deaths
 print(deathsper)
-deathsper.clip(0.00, 0.2)
+#deathsper.clip(0.00, 0.2)
 print(deathsper)
 
 
