@@ -75,11 +75,11 @@ df=pd.read_csv('data.csv')
 #df1 = df.reindex(index=dates[0:4], columns=list(df.columns))
 r=df["R"]
 deaths=df["D"]
-p=df["pop"]
+#p=df["pop"]
 print("deathsper*******************************************")
-deathsper=deaths/p
+deathsper=deaths
 print(deathsper)
-deathsper.clip(0.00, 0.2)
+#deathsper.clip(0.00, 0.2)
 print(deathsper)
 
 
@@ -93,13 +93,14 @@ print(deathsper)
 popscale=np.linspace(0.0, 100.0)
 y1 = np.linspace(6, 12)
 x1 = earthquake(y1, popscale)
-
+slope=deathsper/r
 plt.subplot(1,1,1)
-plt.plot( x1, y1, "-")
+plt.plot( x1, y1,  "-")
 plt.title('deaths from eartquakes')
 plt.ylabel('deaths')
-plt.subplot(1, 1, 1)
 plt.plot(deathsper, r, "o")
+plt.plot(slope, r, "rs")
 plt.xlabel('deaths per 1000')
 plt.ylabel("richter scale")
+
 plt.show()
