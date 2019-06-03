@@ -11,7 +11,7 @@ def test(did_pass):
         msg = "Test at line {0} ok.".format(linenum)
     else:
         msg = ("Test at line {0} FAILED.".format(linenum))
-    print(msg)
+    #print(msg)
 
 
 def  calc_damage_ratio():
@@ -33,15 +33,15 @@ def calc_death_ratio():
     d=48
     r=7.8
     p=164000
-    ra=d/(r)
+    ra=d/r
     return ra
-    
+calc_death_ratio()
 def earthquake(r, ra):
     """r=richter scale, p=popuation of affected area"""
     #ra=calc_death_ratio()
     
     d=(r**2*ra)-(ra/.055)
-    print(d)
+    #print(d)
     #if d>p:
         #d=p
         #return d
@@ -49,7 +49,22 @@ def earthquake(r, ra):
         #return 0
     return d
     #return d (deaths), w(wounded), do(dollars), return (d,w,do)
-    
+def earthquake_user(r, pop):
+    """r=richter scale, p=popuation of affected area"""
+    ra=calc_death_ratio()
+
+    d=pop/(ra*r)
+    # print(d)
+    if d>pop:
+        d=pop
+        return d
+    if d==0:
+        return("no")
+    if d<1:
+        return 0
+
+    return d
+        # return d (deaths), w(wounded), do(dollars), return (d,w,do)
 
 def test_suite():
      """ Run the suite of tests for code in this module (this file).
@@ -63,7 +78,6 @@ def test_suite():
 #t = np.arange(0, 10, 0.5)
 
 #test_suite()
-
 ric=150
 df=pd.read_csv('data_utf.csv')
 #df1 = df.reindex(index=dates[0:4], columns=list(df.columns))
@@ -71,16 +85,16 @@ r=df["R"]
 deaths=df["D"]
 #p=df["pop"]
 print("deaths*******************************************")
-print(deaths)
+#(deaths)
 #deaths.clip(0.00, 0.2)
-print(deaths)
+#print(deaths)
 #plt.plot(t, ric)
 #pop=1000
 popscale=np.linspace(0.0, 250000.0)
 y1 = np.linspace(5, 10)
-x1 = earthquake(y1-0.75, ric+100)
-x2=earthquake(y1-0.6, 150)
-x3=earthquake(y1-0.55, ric-100)
+x1 = earthquake(y1-0.735987, ric+100)
+x2=earthquake(y1-0.73598, 150)
+x3=earthquake(y1-0.736, ric-100)
 slope=deaths/r
 plt.subplot(1,1,1)
 plt.plot( x1, y1,  "-")
@@ -92,9 +106,9 @@ plt.plot(x3, y1, "g-")
 #plt.plot(slope, r, "rs")
 plt.xlabel('deaths')
 plt.ylabel("richter scale")
-#r=float(input("How strong is the earthquake on the Richter scale?"))
-#p=int(input("what is the population of the area?"))
+ric=float(input("How strong is the earthquake on the Richter scale?"))
+pop=int(input("what is the population of the area?"))
 print("Richter scale is how the human race scales earthquakes")
-#print("There will be",earthquake(r,p),"deaths.")
+print("There will be",earthquake_user(ric,pop),"deaths.")
+ok=input("press ENTER to continue:")
 plt.show()
-
