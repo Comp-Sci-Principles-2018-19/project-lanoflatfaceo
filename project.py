@@ -49,11 +49,11 @@ def earthquake(r, ra):
         #return 0
     return d
     #return d (deaths), w(wounded), do(dollars), return (d,w,do)
-def earthquake_user(pop, r):
+def earthquake_user(r, pop):
     """r=richter scale, p=popuation of affected area"""
     ra=calc_death_ratio()
 
-    d=pop/(ra*r)
+    d=(pop)/r*ra
     print(d)
 
     if d>pop:
@@ -100,7 +100,7 @@ x3=earthquake(y1-0.736, deathfactor-100)
 slope=deaths/r
 ric=float(input("How strong is the earthquake on the Richter scale?"))
 pop=int(input("what is the population of the area?"))
-x4=earthquake_user(pop, ric)
+x4=earthquake_user(ric, pop)
 print(x4)
 plt.subplot(1,1,1)
 plt.plot(x4, ric, "bo")
